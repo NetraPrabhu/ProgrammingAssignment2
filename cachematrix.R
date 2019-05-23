@@ -1,20 +1,35 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+##If we want to check whether the matrix that we are inputting as a argument to makeCachematrix is invertible or not 
+#installing package matrixcalc
+install.packages("matrixcalc")
+#Attach matrixcalc pacakge
+library(matrixcalc)
+#To check whether the matrix is singular or not
+# If the matrix  is singular it is not invertible
+is.singular.matrix(##pass the matrix as argument)
+#If the answer to above function is TRUE , matrix in not invertible
+
+        
 
 ## Write a short comment describing this function
-#Inputting a matrix that is invertible and cacheing its inverse by using the following function makeCachematrix
+#Inputting a matrix that is invertible(can be checked by the condition mentioned above) and cacheing its inverse by using the following function makeCachematrix
 makeCacheMatrix <- function(x = matrix()) {
+        #Initially set to NULL
         m <- NULL
-        #set the value of the matrix
+        #set function that sets the matrix
   set <- function(y){
     x <<- y
     m <<- NULL
   }
-        
+   # get function
+   # gets the matrix
   get <- function() x
-        #set and get the inverse of matrix
+        #set the inverse of matrix by following function
   setinverse <- function(inverse) m <<- inverse
+        # get the inverse
   getinverse <- function() m
+        # Create a list of all the above functions namely set , get , setinverse , getinverse
   list(set = set , get = get , setinverse = setinverse , getinverse = getinverse )
 
 }
@@ -25,13 +40,20 @@ makeCacheMatrix <- function(x = matrix()) {
 #cacheSolve is a function that will return inverse of matrix that has been inputted in makeCacheMatrix
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+        #See if the inverse  is calculated or not
         m <-  x$getinverse ()
+        # If it is calculated
   if(!is.null(m)) {
     message("getting cached data")
+          # Return the computed inverse
     return (m)
   }
+        #If it is not then..
+        #Get the matrix
   data <- x$get()
+        #Find inverse
   m <- solve(data , ...)
   x$setinverse(m)
+        # Return the result
   m
 }
