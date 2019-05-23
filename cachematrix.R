@@ -1,16 +1,6 @@
 ## Put comments here that give an overall description of what your
 ## functions do
-##If we want to check whether the matrix that we are inputting as a argument to makeCachematrix is invertible or not 
-#installing package matrixcalc
-install.packages("matrixcalc")
-#Attach matrixcalc pacakge
-library(matrixcalc)
-#To check whether the matrix is singular or not
-# If the matrix  is singular it is not invertible
-is.singular.matrix(##pass the matrix as argument)
-#If the answer to above function is TRUE , matrix in not invertible
 
-        
 
 ## Write a short comment describing this function
 #Inputting a matrix that is invertible(can be checked by the condition mentioned above) and cacheing its inverse by using the following function makeCachematrix
